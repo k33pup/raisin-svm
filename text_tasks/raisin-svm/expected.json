@@ -1,0 +1,5 @@
+{
+  "metric": "accuracy",
+  "min": 0.8444,
+  "max": 0.8844
+}

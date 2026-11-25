@@ -1,0 +1,825 @@
+=== PDF page 1 ===
+Gazi Mühendislik Bilimleri Dergisi  
+2020, 6(3): 200-209 
+Araştırma Makalesi/Research Article 
+https://dergipark.org.tr/gmbd  
+ 
+Bu makaleye atıf yapmak için: I. Cınar, M. Koklu and S. Tasdemir, “Classification of Raisin Grains Using Machine 
+Vision and Artificial Intelligence Methods ,” Gazi Journal of Engineering Sciences , vol. 6, no. 3, pp . 200-209, 
+December, 2020, doi: https://dx.doi.org/10.30855/gmbd.2020.03.03. 
+ 
+Classification of Raisin Grains Using Machine Vision and Artificial 
+Intelligence Methods 
+Ilkay CINAR*,a , Murat KOKLUb , Sakir TASDEMIRc  
+a,* Selcuk University, Faculty Of Technology, Department Of Computer Engineering,  42130, KONYA, TÜRKİYE  
+b  Selcuk University, Faculty Of Technology, Department Of Computer Engineering , 42130, KONYA, TÜRKİYE 
+c  Selcuk University, Faculty Of Technology, Department Of Computer Engineering,  42130, KONYA, TÜRKİYE 
+ 
+ARTICLE INFO   
+  
+ABSTRACT 
+ 
+Recevied: 05.08.2020 
+Accepted: 17.11.2020 
+  
+In this study, machine vision system was developed in order to distinguish between two different 
+variety of raisins (Kecimen and Besni) grown in Turkey. Firstly, a total of 900 pieces raisin grains 
+were obtained, from an equal number of both varieties. These images were subjected to various 
+preprocessing steps and 7 morphological feature extraction operations were performed using 
+image p rocessing techniques. In addition, minimum, mean, maximum and standard deviation 
+statistical information was calculated for each feature. The distributions of both raisin varieties on 
+the features were examined and these distributions were shown on the graphs. Later, models were 
+created using LR, MLP, and SVM machine learning techniques and performance measurements 
+were performed. The classification achieved 85.22% with LR, 86.33% with MLP and 86.44% with 
+the highest classification accuracy obtained in the study with SVM. Considering the number of 
+data available, it is possible to say that the study was successful. 
+ 
+https://dx.doi.org/10.30855/gmbd.2020.03.03 
+ 
+Keywords:  
+Image processing, 
+Morphological features, 
+Machine learning,  
+Feature extraction 
+ 
+*Corresponding Author: 
+e-mail: 
+ilkay.cinar@selcuk.edu.tr 
+ 
+ 
+ 
+Kuru Üzüm Tanelerinin Makine Görüşü ve Yapay Zeka Yöntemleri 
+Kullanılarak Sınıflandırılması 
+ 
+ 
+MAKALE BİLGİSİ   
+  
+ÖZ 
+ 
+ 
+Alınma: 05.08.2020 
+Kabul: 17.11.2020 
+ 
+  
+In this study, machine vision system was developed in order to distinguish between two different 
+variety of raisins (Kecimen and Besni) grown in Turkey. Firstly, a total of 900 pieces raisin grains 
+were obtained, from an equal number of both varieties. These images were subjected to va rious 
+preprocessing steps and 7 morphological feature extraction operations were performed using 
+image processing techniques. In addition, minimum, mean, maximum and standard deviation 
+statistical information was calculated for each feature. The distributions of both raisin varieties on 
+the features were examined and these distributions were shown on the graphs. Later, models were 
+created using LR, MLP, and SVM machine learning techniques and performance measurements 
+were performed. The classification achieved 85.22% with LR, 86.33% with MLP and 86.44% with 
+the highest classification accuracy obtained in the study with SVM. Considering the number of 
+data available, it is possible to say that the study was successful. 
+ 
+https://dx.doi.org/10.30855/gmbd.2020.03.03 
+ 
+Anahtar Kelimeler:  
+Görüntü işleme, 
+Morfolojik özellikler, 
+Makine öğrenmesi,  
+Özellik çıkarımı 
+ 
+*Sorumlu Yazar: 
+e-posta: 
+ilkay.cinar@selcuk.edu.tr 
+ 
+ 
+1. INTRODUCTION (GİRİŞ) 
+Raisins are a concentrated source of carbohydrates 
+and a nutritious snack, containing antioxidants, 
+potassium, fiber and iron [1]. Turkey is one of the 
+countries that ranks top in the world's grape 
+production. Approximately 30% of the grapes 
+produced in Turkey are considered as tab le, 37% as 
+dried, 3% as wine and 30% as other products [2]. 
+ 
+There are many applications of traditional methods 
+for assessing and determining the quality of foods.
+
+=== PDF page 2 ===
+201  
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+PRINT ISSN: 2149-4916  E-ISSN: 2149-9373 © 2017 Gazi Akademik Yayıncılık  
+ 
+ 
+However, these can be time consuming and expensive. 
+In addition, human-made procedures from traditional 
+methods can be inconsistent and more inefficient, as 
+well as physical conditions such as fatigue and even 
+people's psychological mood can affect the outcome 
+of the work.  These negative situations and problems 
+are the main reasons for developin g alternative 
+methods to quickly and precisely evaluate the basic 
+features of products such as raisins. Machine vision 
+system is one of these alternative methods. Using 
+machine vision, it is possible to extract features from 
+images and use them to measure and evaluate the 
+quality of various products [3, 4]. 
+ 
+For this reason, when looking at the studies carried 
+out in recent years using machine vision systems and 
+image processing techniques on raisins from food 
+products, it is seen that the products are exam ined in 
+terms of many physical features such as color, texture, 
+quality and size. 
+ 
+Okamura et al. (1993) extracted wrinkle and shape 
+features from raisin images. They used the Bayesian 
+classifier for classification. According to the results, 
+they stated that the classification was more sensitive 
+than the results of human hand operations [5]. 
+  
+Omid et al. (2010), developed a system for taking 
+images and classifying processes to obtain the size and 
+color features of raisins by using image processing 
+technique. The resulting images were processed and 
+property inferences were made and then classified into 
+two classes in color and size. When the results 
+obtained from the algorithm are analyzed, they 
+obtained approximately 96% classification accuracy 
+[6].  
+ 
+Yu et al. (2011), divided it into four classes 
+according to color, shape, and degree of wrinkle using 
+the support vector machine (SVM) for raisin 
+classification. By using color and texture features on 
+raisin images, they have achieved approximately 95% 
+classification accuracy, which is the highest 
+classification rate by the SVM algorithm. [7].  
+ 
+Mollazade et al. (2012), obtained 36 colors and 8 
+shape features over color images for four different 
+raisin varieties. They reduced the number of features 
+to 7 by usi ng a correlation -based feature selection 
+process to select the most effective out of a total of 44 
+features. They have worked with four different 
+algorithms: artificial neural networks (ANN), SVM, 
+decision trees (DT) and Bayes networks (BN) to 
+classify rai sins. They obtained 96.33% with ANN 
+algorithm as the highest classification accuracy [4]. 
+ 
+Angadi and Hiregoudar (2016) have used the 
+application of MATLAB for the classification of 
+raisins using image processing techniques. They 
+achieved an average of 95% accuracy in their study 
+using color and size features [8]. 
+ 
+Karimi et al. (2017) has designed an expert system 
+for measuring the quality and purity of raisins in his 
+work. Textural features were extracted from 1400 
+pieces raisin images. Principal component  analysis 
+(PCA) was used to find the optimum features of these 
+features. Accordingly, ANN and SVM  were used to 
+classify grapes. Compared to ANN, using the top 50 
+features, they achieved more efficient and accurate 
+classification results with the SVM algorithm [3]. 
+ 
+In this study, a machine vision system was 
+developed in order to classify the Besni and Kecimen 
+raisin varieties produced in Turkey. In the second 
+section of the study, information about obtaining the 
+image, the operations performed on the images , 
+feature extraction stage, performance evaluation and 
+cross validation is given. The third section provides 
+information about the classification models used in the 
+study. In the fourth section, the results obtained in the 
+study are explained in detail. In  the final section, 
+discussion topics are given. 
+ 
+2. MATERIAL AND METHOD (MATERYAL VE 
+METHOD) 
+In this study, firstly, raisin sample images were 
+obtained and images were processed by using various 
+image processing techniques. The images obtained 
+were first converted to grayscale images and then 
+converted to binary images. Using the imcomplement 
+function on binary images, black areas are converted 
+to white and white areas to black. Later, the images 
+were cleared of noise. In the next phase, various 
+morphological feature inference operations were 
+applied on the obtained images. During the 
+classification phase, the classification of raisins was 
+performed using LR (Logistic Regression), MLP 
+(Multi-Layer Perceptron) and SVM machine learning 
+techniques. In the final phase, the performances of the 
+techniques used were evaluated. The necessary 
+process steps for the classification of raisins are given 
+in Figure 1.
+
+=== PDF page 3 ===
+202 
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+ 
+Figure 1.  The necessary process steps for 
+classification of raisins (Kuru üzümlerin sınıflandırılması için 
+gerekli işlem adımları) 
+ 
+2.1. Image Acquisition (Görüntünün Elde Edilmesi) 
+ 
+The images of the raisins used in the study were 
+taken using a four side closed box with a camera on it 
+and a lighting mechanism inside. The reason why the 
+box is enclosed is to prevent it from receiving reverse 
+light from the outside and to prevent shadow 
+formation on the samples. The box floor is set to white 
+so that raisins can be easily distinguished during 
+image processing. Figure 2 shows the system design 
+used to obtain sample images of raisins. 
+ 
+ 
+Figure 2. The computer vision system used to 
+acquisition images (Görüntü elde etmek için kullanılan sistem) 
+ 
+A total of 900 images of raisins were obtained from 
+both types of raisins used in the study, including 450 
+pieces. Sample images of the raisin varieties obtained 
+are given in Figure 3. 
+ 
+   
+(a)                    (b) 
+Figure 3. Sample image of raisin varieties used in the 
+study ((a) Besni, (b) Kecimen) (Çalışmada kullanılan kuru 
+üzüm çeşitlerine ait örnek görüntü ((a) Besni , (b) Keçimen)) 
+ 
+2.2. Image Processing (Görüntü İşleme) 
+ 
+In the process of image processing, the pre -
+processes required for the most accurate way to 
+perform feature extraction and classification are 
+explained. The image processing phase has a critical 
+importance as it directly affects feature inference and 
+thus the classification outcome. All these were taken 
+into account during the processing of the image. 
+Image processing was performed using the 
+MATLAB application. The images obtained from the 
+camera were converted primarily to grayscale image 
+and then to binary image in preparation for the feature 
+extraction phase. Since raisins are closer to black 
+color, background color tone is chosen white. 
+Therefore, using the imcomplement function on 
+binary images, white areas are converted to black and 
+black areas to white. Finally, the images are free of the 
+noise on them. The preprocessing steps performed on 
+raisin images are given in Figure 4.
+
+=== PDF page 4 ===
+203  
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+PRINT ISSN: 2149-4916  E-ISSN: 2149-9373 © 2017 Gazi Akademik Yayıncılık  
+ 
+ 
+    
+(a) (b)  
+    
+          (c)                               (d) 
+Figure 4. The preprocessing steps performed on 
+images ((a) Real image, (b) Grayscale image, (c) 
+Binary image, (d) Imcomplement image) (Görüntüler 
+üzerinde gerçekleştirilen ön işlem aşamaları ((a) Gerçek görüntü, 
+(b) Gri tonlamalı görüntü, (c) İkili görüntü, (d) Terslenmiş 
+görüntü)) 
+ 
+2.3. Feature Extraction (Özellik Çıkarımı) 
+ 
+During the feature extraction phase, a number of 
+feature inferences were performed for each of the 
+raisins found on the images. Feature extraction 
+process was carried out in terms of morphological 
+features. A total of 7 morphological features were 
+inferred for each one raisin grain. 
+ 
+Morphological feature inference is a wide variety 
+of image processing processes that process images 
+based on the shapes found on the images. In t his 
+process, each pixel in the image is adjusted according 
+to the value of the other pixels around it [9]. The 
+morphological features and descriptions used in 
+feature inference are given below. 
+ 
+Area: Gives the number of pixels within the 
+boundaries of the raisin grain. 
+ 
+Perimeter: It measures the environment by 
+calculating the distance between the boundaries of the 
+raisin grain and the pixels around it. 
+ 
+MajorAxisLength: Gives the length of the main 
+axis, which is the longest line that can be drawn on the 
+raisin grain. 
+ 
+MinorAxisLength: Gives the length of the small 
+axis, which is the shortest line that can be drawn on 
+the raisin grain. 
+ 
+Eccentricity: It gives a measure of the eccentricity 
+of the ellipse, which has the same moments as raisins. 
+ 
+ConvexArea: Gives the number of pixels of the 
+smallest convex shell of the region formed by the 
+raisin grain. 
+ 
+Extent: Gives the ratio of the region formed by the 
+raisin grain to the total pixels in the bounding box. 
+ 
+2.4. Performance Evaluation  (Performans 
+Değerlendirmesi) 
+ 
+As a result of creating a new model required for 
+classification problems or using existing models, 
+achieving success on that model is calculated by the 
+number of correct estimates. This situation has an 
+impact on the accuracy of the classification rather than 
+predicting whether the model is good. Therefore, the 
+confusion matrix is used to explain the estimated 
+assessments of the classification. The matrix, which 
+gives information about the estimated classes and real 
+classes performed via a classific ation model on test 
+data, is the confusion matrix [10]. In Table 1, the 
+confusion matrix used in the classification of raisins is 
+given.  
+ 
+There are four parameters in the confusion matrix. 
+These are named as tp: true positives, fp: false 
+positives, fn: false negatives, tn: true negatives. 
+Examples correctly classified into the positive class 
+are called true positives. Examples correctly classified 
+into the negative class are called true negatives. 
+Examples of positive classes that are falsely classified 
+as negative are called false negatives, and examples of 
+negative classes that are falsely classified as positiv e 
+are called false positives [11]. 
+ 
+Table 1. Confusion matrix used in raisin classification 
+(Kuru üzüm sınıflandırmasında kullanılan karmaşıklık matrisi)  
+ 
+Predicted 
+Kecimen Besni 
+Actual 
+Kecimen tp fp 
+Besni fn tn
+
+=== PDF page 5 ===
+204 
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+The performance metrics  for two -class 
+classification are calculated benefiting from Table 1. 
+Calculation formulas for success criteria are given in 
+Table 2 [12]. 
+ 
+ 
+Table 2. Calculation formulas for performance success criteria (Performans başarı ölçütleri için hesaplama 
+formülleri) 
+No Performance Measure Formula 
+1 Accuracy 
+ 
+2 Sensitivity 
+ 
+3 Specificity 
+ 
+4 Precision 
+ 
+5 F1-Score 
+ 
+6 Negative Predictive Value 
+ 
+7 False Positive Rate 
+ 
+8 False Discovery Rate 
+ 
+9 False Negative Rate 
+ 
+ 
+2.5. Cross Validation (Çapraz Doğrulama)
+ 
+Cross-validation is a method of error prediction 
+developed with the aim of improving the security of 
+classification. Cross -validation divides the dataset 
+such that it is random to a determined number of 
+subsets for training and testing. It accepts one of t he 
+subsets as a test set, and the system is trained with the 
+remaining sets. This process is repeated up to the 
+number of data sets and the system is tested [13]. 
+Figure 5 shows the cross-validation method. 
+ 
+ 
+Figure 5. Cross-validation (Çapraz Doğrulama)
+
+=== PDF page 6 ===
+205  
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+PRINT ISSN: 2149-4916  E-ISSN: 2149-9373 © 2017 Gazi Akademik Yayıncılık  
+ 
+ 
+In the study, the number of cross-validation repeats 
+was selected as k=10. 1/10 of the data set is divided 
+for testing and 9/10 for training. For the entire dataset, 
+these operations are repeated and  the system test is 
+completed. 
+ 
+3. CLASSIFICATION MODELS (SINIFLANDIRMA 
+MODELLERİ) 
+Classification models are a method of high 
+importance used in various fields. In class 
+determination, classification algorithms are used to 
+determine which class the data belongs to.  The 
+classification model is a model based on prediction. 
+The purpose of the classification is to enable the data 
+to be separated using the common features of the data 
+[14].  In this study, models were created using LR, 
+MLP and SVM techniques in order to classify raisin 
+grains according to their features.  
+ 
+3.1. Logistic Regression (LR) (Lojistik Regresyon) 
+ 
+LR is one of the widely used statistical models. In 
+LR, the dependent variable is estimated from one or 
+more variables. LR clarifies the relationship between 
+dependent variables and independent variables. In LR, 
+variables do not need to require a normal distribution 
+[15, 16]. Because the predicted values in LR are 
+probabilities, they were bounded by 0 and 1. The 
+reason for this is that LR predicts its probability and 
+not itself in the results [17]. 
+ 
+3.2. Multilayer Perceptron  (MLP) (Çok Katmanlı 
+Algılayıcı) 
+ 
+Today, many artificial neural network models have 
+been developed to be used for specific purposes, and 
+MLP is one of the most widely used in these models. 
+The sequence of neurons in MLP is in layers. Along 
+with two main la yers, there is also a hidden layer 
+between these layers. MLP can have multiple hidden 
+layers within it. The input layer, the first of the main 
+layers, contains information about the problem that 
+needs to be solved. The second main layer, the output 
+layer, is the layer from which the output for the 
+information processed in the network is received [18, 
+19]. Additionally, it is also possible to monitor and 
+modify the network structure during the training 
+period at MLP [20]. MLP parameters are given in 
+Table 3. 
+ 
+ 
+ 
+ 
+ 
+Table 3. The parameters of MLP (MLP parametreleri) 
+Parameters 
+Activation function Sigmoid 
+Learning rate 0.3 
+Hidden layer number 4 
+Maximum number of epochs to train 500 
+ 
+3.3. Support Vector Machine (SVM) (Destek Vektör 
+Makinesi) 
+ 
+SVM is a core -based method of forming a 
+hyperplane for classification and regressions. SVM 
+has the ability to classify data as linear in two -
+dimensional space, planar in three-dimensional space 
+and hyperplane in multi -dimensional space with 
+separation mechanisms [21, 22]. SVM finds the best 
+hyper plane separating the data of the classes and 
+performs the classification process. The best 
+hyperplane for an SVM is the one with the largest 
+margine between the two classes [23]. 
+ 
+Different types of kernel functions are used in 
+SVM models. In this study, classification was 
+performed using the polynomial kernel function. 
+ 
+4. RESULTS (SONUÇLAR) 
+In order to classify the rice varieties used in our 
+study, preprocessing was applied to the images we 
+obtained and a total of 900 pieces raisin grain were 
+obtained and 7 morphological features were inferred 
+for each of these. The minimum, mean, maximum and 
+standard deviation data of morphological features for 
+both types of raisins are given in Table 4 . Figure 6  
+shows the  distribution of raisin varieties on the 
+features.
+
+=== PDF page 7 ===
+206 
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+  
+  
+  
+  
+Figure 6. Distribution of raisin varieties on the features (Kuru üzüm çeşitlerinin özellikler üzerindeki dağılımı )
+
+=== PDF page 8 ===
+207  
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+PRINT ISSN: 2149-4916  E-ISSN: 2149-9373 © 2017 Gazi Akademik Yayıncılık  
+ 
+ 
+Table 4. Statistical data on the properties obtained (Elde edilen özelliklere ait istatistiki veriler ) 
+No Feature Minimum Mean Maximum Standard Deviation 
+1 Area 25387 87804.128 235047 39002.111 
+2 Perimeter 619.074 1165.907 2697.753 273.764 
+3 MajorAxisLength 225.63 430.93 997.292 116.035 
+4 MinorAxisLength 143.711 254.488 492.275 49.989 
+5 Eccentricity 0.349 0.782 0.962 0.09 
+6 ConvexArea 26139 91186.09 278217 40769.29 
+7 Extent 0.38 0.7 0.835 0.053 
+A data set was created for the features obtained in 
+the study and models were created for classification 
+using LR, MLP and SVM machine learning 
+techniques and performance values were obtained. 
+Cross validation k value was chosen as 10 in all 
+models used. In Table 5, the confusion matrix 
+belonging to all the algorithms used in the study is 
+given. 
+ 
+Table 5. The confusion matrix data belonging to the 
+algorithms (Algoritmalara ait karmaşıklık matrisi verileri)  
+Algorithms 
+LR, MLP, SVM 
+Predicted 
+Kecimen Besni 
+Actual Kecimen 
+391 
+400 
+404 
+59 
+50 
+46 
+Besni 
+74 
+73 
+76 
+376 
+377 
+374 
+ 
+Classification performance measures were 
+calculated using the complexity matrix for each 
+model, such as Accuracy, Sensitivity, Specificity, 
+Precision, F1-Score, Negative Predicted Value, False 
+Positive Rate, False Discovery Rate, and False 
+Negative Rate. C lassification performance 
+measurement results are given in Table 6.  
+ 
+Table 6. Classification performance measurement 
+results (Sınıflandırma performans ölçüm sonuçları ) 
+Performance 
+Measure LR MLP SVM 
+Accuracy 85.22 86.33 86.44 
+Sensivitiy 84.09 84.57 84.17 
+Specificity 86.44 88.29 89.05 
+Precision 86.89 88.89 89.78 
+F1-Score 85.46 86.67 86.88 
+Negative Predictive 
+Value 83.56 83.78 83.11 
+False Positive Rate 13.56 11.71 10.95 
+False Discovery Rate 13.11 11.11 10.22 
+False Negative Rate 15.91 15.43 15.83 
+ 
+As seen in Table 6, a classification success of over 
+85% was obtained from all the algorithms used in the 
+study. 86.44% accuracy value achieved in the SVM 
+model has the highest value among other models. 
+ 
+5. DISCUSSION (TARTIŞMA) 
+When the results obtained from the study are 
+evaluated, higher classification successes can be 
+achieved by increasing the number of images or 
+features obtained from the products and adding color, 
+shape and texture features in addition to the 
+morphological features.  
+In addition to the machine learning techniques used 
+in the current study, studies can be carried out with 
+other techniques or hybrid models can be created. 
+ 
+6. CONCLUSION (SONUÇ) 
+In this study, performance measurements of 3 
+different machine lea rning algorithms were made 
+using raisin images and morphological properties 
+obtained from these images. Statistical datas obtained 
+from the confusion matrix obtained from the 
+classification result were used as performance 
+measurement. The performance measurement given in 
+Table 6 are obtained and compared for each method 
+and each class. Looking at average classification 
+accuracy, the highest value belongs to the SVM 
+algorithm with 86.44%. 
+ 
+The varieties of raisins used in the study are among 
+the products pro duced and exported in Turkey. 
+Benefiting the image processing techniques used in 
+this study, data sets can be created using the derived 
+feature inferences and the models created, as well as 
+for other products produced in our country. In this 
+way, automatic systems can be designed by using the 
+created data sets for classification, calibration of the 
+products or to be used in different processing stages.
+
+=== PDF page 9 ===
+208 
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+CONFLICT OF INTEREST STATEMENT (ÇIKAR 
+ÇATIŞMASI BİLDİRİMİ)  
+ 
+   The authors reported no potential conflict of interest. 
+REFERENCES  (KAYNAKLAR)  
+[1] Karimi, N., Arab hosseini, A., Kianmehr, M. H., 
+and Khazaei, J., “Modelling of raisin berries by some 
+physical and statistical characteristics ,” Int. 
+Agrophys., vol. 25(2), pp. 141-147, April 2011. 
+ 
+[2] Semerci, A., Kızıltuğ, T., Çelik, A., and Kiracı, M., 
+"Türkiye bağcılığının genel durumu" Mustafa Kemal 
+Üniversitesi Ziraat Fakültesi Dergisi , vol. 20(2), pp. 
+42-51, October 2015. 
+ 
+[3] Karimi, N., R.R. Kondrood, and T. Alizadeh, “An 
+intelligent system for quality measurement of Golden 
+Bleached raisins using two comparative machine 
+learning algorithms,” Measurement, vol. 107, pp. 68-
+76, September 2017. 
+doi:10.1016/j.measurement.2017.05.009 
+ 
+[4] Mollazade , K., M. Omid, and A. Arefi, 
+“Comparing data mining classifiers for grading raisins 
+based on visual feature s,” Computers electronics in 
+agriculture, vol. 84, pp. 124-131, June 2012.  
+doi:10.1016/j.compag.2012.03.004 
+ 
+[5] Okamura, N.K., M. Delwiche, and J. Thompson, 
+“Raisin grading by machine vision ,” Transactions of 
+the ASAE, 1993. 
+ 
+[6] Omid, M., Abbasgolipour, M., Ke yhani, A., and  
+Mohtasebi, S. S. , “ Implementation of an efficient 
+image processing algorithm for grading raisins ,” 
+International Journal of Signal Image Processing , 
+vol. 1(1), pp. 31-34, January 2010. 
+ 
+[7] Yu, X., Liu, K., Wu, D., and He, Y ., “Raisin 
+quality classification using least squares support 
+vector machine (LSSVM) based on combined color 
+and texture features ,” Food bioprocess technolo gy, 
+vol. 5(5), pp. 1552-1563, 2012. doi: 10.1007/s11947-
+011-0531-9 
+ 
+[8] Angadi, S.A. and N. Hiregoudar, “A Cost 
+Effective Algorithm for Grading Raisins Using Image 
+Processing,” International Journal of Recent Trends 
+in Engineering Research vol. 2, pp. 2455-1457, July 
+2016. 
+ 
+[9] MathWorks. “Image Processing Toolbox. ” 
+mathworks.com, 2020, [Online]. Available:  
+https://ch.mathworks.com/help/images/morphologica
+l-filtering.html. [Accessed: May. 05, 2020]. 
+ 
+[10] Çataloluk, H., “Gerçek tıbbi veriler üzerinde veri 
+madenciliği yöntemlerini kullanarak hastalık teşhisi,” 
+MS thesis,  Bilecik Üniversitesi, Fen Bilimleri 
+Enstitüsü, 2012. 
+ 
+[11] Ruuska, S., Hämäläinen, W., Kajava, S., Mughal, 
+M., Matilainen, P., and  Mononen, J., “Evaluation of 
+the confusion matrix method in the validation of an 
+automated system for measuring feeding behaviour of 
+cattle,” Behavioural processes , vol. 148, pp. 56-62, 
+March 2018. doi:10.1016/j.beproc.2018.01.004 
+ 
+[12] Ozkan, I.A. and M. Koklu, “Skin Lesion 
+Classification using Machine L earning Algorithms,” 
+International Journal of Intelligent Systems 
+Applications in Engineering , vol. 5(4), pp. 285-289, 
+December 2017. doi:10.18201/ijisae.2017534420 
+ 
+[13] Gupta, P.  “Cross-Validation in Machine 
+Learning,” Jun. 5, 2017. [Online]. Available: 
+https://towardsdatascience.com/cross-validation-in-
+machine-learning-72924a69872f. [Accessed: May. 
+06, 2020]. 
+ 
+[14] Özkan, Y., Veri madenciliği yöntemleri. Papatya 
+Yayıncılık Eğitim, 2008, pp. 39-190. 
+ 
+[15] Cruyff, M. J., Böckenholt, U., Van Der Heijden, 
+P. G., and Frank, L. E. , “A review of regression 
+procedures for randomized response data, including 
+univariate and multivariate logistic regression, the 
+proportional odds model and ite m response model, 
+and self -protective responses, ” in Handbook of 
+Statistics. Elsevier, 2016. pp. 287 -315. 
+doi:10.1016/bs.host.2016.01.016 
+ 
+[16] Kalantar, B., Pradhan, B., Naghibi, S. A., 
+Motevalli, A., and Mansor, S. , “Assessment of the 
+effects of training data selection on the landslide 
+susceptibility mapping: a comparison between 
+support vector machine (SVM), logistic regression 
+(LR) and artificial neural networks (ANN) ,” 
+Geomatics, Natural Hazards Risk , vol. 9(1), pp. 49-
+69, 2018. doi:10.1080/19475705.2017.1407368 
+ 
+[17] Wikipedia, “Logistic regression,” wikipedia.com, 
+2020. [Online]. Available : 
+https://en.wikipedia.org/w/index.php?title=Logistic_r
+egression&oldid=955290285. [Accessed: May. 05, 
+2020]. 
+ 
+[18] Sabanci, K., Unlersen M. F.,  “Farklı Boyuttaki 
+Elmaların KNN ve MLP Algoritmaları  Kullanılarak 
+Sınıflandırılması,” in International Multidisciplinary 
+Congree Of Eurasia, Imcofe’16 , Odessa, July 11-13, 
+2016. pp. 782.
+
+=== PDF page 10 ===
+209  
+Çınar, Kökölü, Taşdemir  / Gazi Mühendislik Bilimleri Dergisi 6 (3). (2020) 200-209 
+ 
+PRINT ISSN: 2149-4916  E-ISSN: 2149-9373 © 2017 Gazi Akademik Yayıncılık  
+ 
+ 
+[19] Tümer, A. E., and Koçer, S. “Prediction of team 
+league’s rankings in volleyball by artificial neural 
+network method ,” International Journal of 
+Performance Analysis in Sport , vol. 17(3), pp. 202 -
+211, May 2017. 
+doi:10.1080/24748668.2017.1331570 
+ 
+[20] Arora, R., “Comparative analysis of 
+classification algorithms on different datasets usin g 
+WEKA,” International Journal of Computer 
+Applications, September 2012. 54(13).  doi: 
+10.5120/8626-2492 
+ 
+[21] Abhang, P.A., B.W. Gawali, and S.C. Mehrotra, 
+Introduction to EEG -and speech -based emotion 
+recognition, Academic Press, 2016 
+ 
+[22] Kaynar, O., Yıldız , M., Görmez, Y., and 
+Albayrak, A ., “Makine öğrenme si yöntemleri ile 
+Duygu Analizi,”  in International Artificial 
+Intelligence and Dat a Processing Symposium, 
+IDAP'16, September 17-18, 2016. pp. 234-241. 
+ 
+[23] Mathworks. “Support Vector Machines for 
+Binary Classification ,” mathworks.com, 2020. 
+[Online]. Available: 
+https://ch.mathworks.com/help/stats/support-vector-
+machines-for-binary-classification.html#bsr5b42. 
+[Accessed: May. 05, 2020]. 
+ 
+İlkay ÇINAR 
+ 
+ILKAY CINAR was born in Konya in 1987. He 
+graduated from the Department of Computer Systems 
+teaching at Selcuk University in 2012 and from the 
+Department of Computer Engineering at Selcuk 
+University in 2018.  He completed his master's degree 
+in Comp uter Engineering at Selcuk University in 
+2019. He is a lecturer in Computer Engineering at 
+Selcuk University Faculty of Technology and is 
+currently studying for his PhD. He carries out various 
+studies on image processing and artificial intelligence 
+technologies. 
+ 
+Murat KÖKLÜ 
+ 
+Murat KOKLU was born in Konya, TURKEY in 
+1979. He received B.Sc. degrees in Computer System 
+Teaching in 2002 and Computer Engineering in 2019 
+from the Selcuk University. He received M.Sc. and 
+Ph.D degrees from Selcuk University Electronic and 
+Computer in 2005,  and Computer Engineering in 
+2014 respectively. He has been working as an 
+Assistant Professor in the Department of Computer 
+Engineering at Selcuk University. His current 
+research interests include data mining and artificial  
+intelligence. 
+ 
+Şakir TAŞDEMİR 
+ 
+Sakir TASDEMIR was born in Sinop in the year of 
+1971. After he graduated from high school in Sinop he 
+went to Gazi University in Ankara and he completed 
+his B.S. at there in 1994. Then he studied and 
+completed his M.S. at Se lçuk University in 2004. 
+After this he finally had his Ph.D. from Selçuk 
+University, Graduate School of Natural Sciences, 
+Department of Electrical -Electronic Engineering in 
+2010. As a result of his education and 
+accomplishments he possesses the technical s kills 
+such as image processing analysing, ability to work on 
+the field of Artificial Intelligence, digital game 
+designing and programming mobile programming (for 
+android), web programming (HTML-PHP-MYSQL).

@@ -1,0 +1,26 @@
+Attempt 1 | exit 0 | 1.123 s
+FOLD 1: train size=810, test size=90, correct=78
+FOLD 2: train size=810, test size=90, correct=77
+FOLD 3: train size=810, test size=90, correct=75
+FOLD 4: train size=810, test size=90, correct=72
+FOLD 5: train size=810, test size=90, correct=74
+FOLD 6: train size=810, test size=90, correct=73
+FOLD 7: train size=810, test size=90, correct=70
+FOLD 8: train size=810, test size=90, correct=81
+FOLD 9: train size=810, test size=90, correct=74
+FOLD 10: train size=810, test size=90, correct=77
+METRIC {"accuracy": 0.8555555555555555}
+
+Attempt 2 | exit 0 | 1.467 s
+FOLD 1: train size=810, test size=90, correct=78
+FOLD 2: train size=810, test size=90, correct=77
+FOLD 3: train size=810, test size=90, correct=75
+FOLD 4: train size=810, test size=90, correct=72
+FOLD 5: train size=810, test size=90, correct=74
+FOLD 6: train size=810, test size=90, correct=73
+FOLD 7: train size=810, test size=90, correct=70
+FOLD 8: train size=810, test size=90, correct=81
+FOLD 9: train size=810, test size=90, correct=74
+FOLD 10: train size=810, test size=90, correct=77
+METRIC {"accuracy": 0.8344444444444444}
+

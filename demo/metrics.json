@@ -1,0 +1,97 @@
+{
+  "accuracy": 0.8344444444444444,
+  "correct": 751,
+  "total": 900,
+  "classes": [
+    "Besni",
+    "Kecimen"
+  ],
+  "confusion": [
+    [
+      365,
+      85
+    ],
+    [
+      64,
+      386
+    ]
+  ],
+  "folds": [
+    {
+      "fold": 1,
+      "train": 810,
+      "test": 90,
+      "correct": 78,
+      "accuracy": 0.8666666666666667
+    },
+    {
+      "fold": 2,
+      "train": 810,
+      "test": 90,
+      "correct": 77,
+      "accuracy": 0.8555555555555555
+    },
+    {
+      "fold": 3,
+      "train": 810,
+      "test": 90,
+      "correct": 75,
+      "accuracy": 0.8333333333333334
+    },
+    {
+      "fold": 4,
+      "train": 810,
+      "test": 90,
+      "correct": 72,
+      "accuracy": 0.8
+    },
+    {
+      "fold": 5,
+      "train": 810,
+      "test": 90,
+      "correct": 74,
+      "accuracy": 0.8222222222222222
+    },
+    {
+      "fold": 6,
+      "train": 810,
+      "test": 90,
+      "correct": 73,
+      "accuracy": 0.8111111111111111
+    },
+    {
+      "fold": 7,
+      "train": 810,
+      "test": 90,
+      "correct": 70,
+      "accuracy": 0.7777777777777778
+    },
+    {
+      "fold": 8,
+      "train": 810,
+      "test": 90,
+      "correct": 81,
+      "accuracy": 0.9
+    },
+    {
+      "fold": 9,
+      "train": 810,
+      "test": 90,
+      "correct": 74,
+      "accuracy": 0.8222222222222222
+    },
+    {
+      "fold": 10,
+      "train": 810,
+      "test": 90,
+      "correct": 77,
+      "accuracy": 0.8555555555555555
+    }
+  ],
+  "range": [
+    0.8444,
+    0.8844
+  ],
+  "in_range": false,
+  "reference_disagreements": 0
+}
